@@ -1,6 +1,7 @@
-import React from 'react';
-
-const Navbar = () => {
+import { useSelector } from 'react-redux';
+import Link from 'next/link';
+const Navbar = ({ toggleMobileNav, setToggleMobileNav }) => {
+  const routes = useSelector((state) => state.routes);
   return (
     <>
       {/* <!-- header --> */}
@@ -18,7 +19,11 @@ const Navbar = () => {
 
             {/* <!-- mobile toggle --> */}
             <div class='toggle md:hidden'>
-              <button>
+              <button
+                onClick={() => {
+                  setToggleMobileNav(true);
+                }}
+              >
                 <svg
                   class='h-6 w-6 fill-current text-black'
                   fill='none'
@@ -35,39 +40,24 @@ const Navbar = () => {
             {/* <!-- Navbar --> */}
             <navbar class='navbar hidden md:block'>
               <ul class='flex space-x-8 text-sm font-semibold'>
-                <li>
-                  <a href='#' class='active border-b-2 border-orange-500 pb-2'>
-                    Reviews
-                  </a>
-                </li>
-                <li>
-                  <a href='#' class='hover:text-orange-500'>
-                    People
-                  </a>
-                </li>
-                <li>
-                  <a href='#' class='hover:text-orange-500'>
-                    Partners
-                  </a>
-                </li>
-                <li>
-                  <a href='#' class='hover:text-orange-500'>
-                    Feedback
-                  </a>
-                </li>
-                <li>
-                  <a href='#' class='hover:text-orange-500'>
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='#'
-                    class='cta bg-orange-500 hover:bg-orange-600 px-3 py-2 rounded text-white font-normal'
-                  >
-                    Get the App
-                  </a>
-                </li>
+                {routes.map((route) => (
+                  <>
+                    <li>
+                      <Link href={route.href}>
+                        <a
+                          href={route.href}
+                          class={`${
+                            route.desktopClassList
+                              ? route.desktopClassList
+                              : 'hover:text-orange-500'
+                          }`}
+                        >
+                          {route.name}
+                        </a>
+                      </Link>{' '}
+                    </li>
+                  </>
+                ))}
               </ul>
             </navbar>
           </div>

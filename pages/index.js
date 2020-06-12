@@ -1,13 +1,21 @@
+import React, { useState, useContext } from 'react';
 import HeroImage from '../src/components/hero/HeroImage';
 import Navbar from '../src/components/Navbar';
 import MobileNavbar from '../src/components/MobileNavbar';
 import HeroText from '../src/components/hero/HeroText';
 import Container from '../src/components/utilities/Container';
+import RoutesState from '../src/context/RoutesState';
+import RoutesContext from '../src/context/routesContext';
 
 const index = () => {
+  const [toggleMobileNav, setToggleMobileNav] = useState(false);
+  const routesContext = useContext(RoutesContext);
   return (
     <>
-      <Navbar />
+      <Navbar
+        toggleMobileNav={toggleMobileNav}
+        setToggleMobileNav={setToggleMobileNav}
+      />
       {/* <!-- hero --> */}
       <div class='hero bg-gray-100 py-16'>
         {/* <!-- container --> */}
@@ -34,7 +42,10 @@ const index = () => {
       </Container>
 
       {/* <!-- end hero --> */}
-      {/* <MobileNavbar /> */}
+      <MobileNavbar
+        toggleMobileNav={toggleMobileNav}
+        setToggleMobileNav={setToggleMobileNav}
+      />
     </>
   );
 };

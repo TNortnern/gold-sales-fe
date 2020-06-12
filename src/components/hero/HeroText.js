@@ -13,8 +13,14 @@ const HeroText = () => {
           Your ultimate travel companion. Carries all the information you need
           while travelling
         </p>
-        <div className='get-app flex space-x-5 mt-10 justify-center md:justify-start md:mb-0 -mb-48'>
-          <button className='apple bg-white shadow-md px-3 py-2 rounded-lg flex items-center space-x-4'>
+        <div className='get-app flex space-x-5 mt-10 justify-center md:mb-0 -mb-48'>
+          <a
+            href='#'
+            class='cta bg-orange-500 hover:bg-orange-600 px-3 py-2 rounded text-white font-normal w-full w- text-center'
+          >
+            Buy Gold
+          </a>
+          {/* <button className='apple bg-white shadow-md px-3 py-2 rounded-lg flex items-center space-x-4'>
             <div className='logo'>
               <svg
                 className='w-6 h-6'
@@ -69,7 +75,7 @@ const HeroText = () => {
               <p className='text-xs text-gray-600'>Download it from</p>
               <p className='text-xs font-semibold text-gray-900'>Google play</p>
             </div>
-          </button>
+          </button> */}
         </div>
       </div>
     </>
