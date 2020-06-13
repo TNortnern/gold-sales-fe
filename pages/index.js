@@ -2,9 +2,8 @@ import React, { useState, useContext } from 'react';
 
 import Navbar from '../src/components/Navbar';
 import MobileNavbar from '../src/components/MobileNavbar';
-
-import Container from '../src/components/utilities/Container';
-import Hero from '../src/components/hero/Hero';
+import Hero from '../src/components/hero/Hero'
+import WhatWeDo from '../src/components/whatwedo/WhatWeDo';
 
 const index = () => {
   const [toggleMobileNav, setToggleMobileNav] = useState(false);
@@ -16,6 +15,7 @@ const index = () => {
       />
       <Hero />
 
+      <WhatWeDo />
       <MobileNavbar
         toggleMobileNav={toggleMobileNav}
         setToggleMobileNav={setToggleMobileNav}
