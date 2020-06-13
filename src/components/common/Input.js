@@ -32,16 +32,34 @@ const Input = ({
         {label}
       </label>
       <input
-        class='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+        class={`appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 ${
+          errors[name] ? 'border border-red-500 focus:border-red-500' : ''
+        }`}
         id='grid-last-name'
         type={type || 'text'}
         onChange={onChange}
         placeholder={placeholder}
-        value={value}
+        defaultValue={value}
         name={name}
         ref={register(validationRules)}
       />
-      {errors[name] && <span>This field is required</span>}
+      {errors[name] && (
+        <span>
+          {errors[name].type === 'required' && (
+            <p className='text-red-500 text-xs italic'>
+              This Field Is Required
+            </p>
+          )}
+          {errors[name].type === 'pattern' && (
+            <p className='text-red-500 text-xs italic'>Invalid Email Address</p>
+          )}
+          {errors[name].type === 'minLength' && (
+            <p className='text-red-500 text-xs italic'>
+              Mininum Of 2 Characters
+            </p>
+          )}
+        </span>
+      )}
     </div>
   );
 };

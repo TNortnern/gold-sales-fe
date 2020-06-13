@@ -19,9 +19,9 @@ const login = () => {
             placeholder='Username'
             label='Username'
             onChange={(e) => setUsername(e.target.value)}
-            value={username}
+            defaultValue={username}
             name='username'
-            validationRules={{ required: true }}
+            validationRules={{ required: true, minLength: 2 }}
             validationRefs={{ register, errors }}
 
             // placeholder='First Name'
@@ -39,9 +39,9 @@ const login = () => {
             placeholder='Password'
             label='Password'
             onChange={(e) => setPassword(e.target.value)}
-            value={password}
+            defaultValue={password}
             name='password'
-            validationRules={{ required: true }}
+            validationRules={{ required: true, minLength: 2 }}
             validationRefs={{ register, errors }}
           />
         </div>

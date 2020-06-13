@@ -41,9 +41,9 @@ const register = () => {
             placeholder='First Name'
             label='First Name'
             onChange={(e) => setFirstName(e.target.value)}
-            value={firstName}
+            defaultValue={firstName}
             name='firstName'
-            validationRules={{ required: true }}
+            validationRules={{ required: true, minLength: 2 }}
             validationRefs={{ register, errors }}
           />
           <Input
@@ -51,9 +51,9 @@ const register = () => {
             placeholder='Last Name'
             label='Last Name'
             onChange={(e) => setLastName(e.target.value)}
-            value={lastName}
+            defaultValue={lastName}
             name='lastName'
-            validationRules={{ required: true }}
+            validationRules={{ required: true, minLength: 2 }}
             validationRefs={{ register, errors }}
           />
         </div>
@@ -62,9 +62,9 @@ const register = () => {
             placeholder='Username'
             label='Username'
             onChange={(e) => setUsername(e.target.value)}
-            value={username}
+            defaultValue={username}
             name='username'
-            validationRules={{ required: true }}
+            validationRules={{ required: true, minLength: 2 }}
             validationRefs={{ register, errors }}
           />
         </div>
@@ -73,10 +73,11 @@ const register = () => {
             placeholder='Email'
             label='Email'
             onChange={(e) => setEmail(e.target.value)}
-            value={email}
+            defaultValue={email}
             name='email'
             validationRules={{
               required: 'required',
+              minLength: 2,
               pattern: {
                 value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                 message: 'invalid email address',
@@ -91,7 +92,7 @@ const register = () => {
             placeholder='Password'
             label='Password'
             onChange={(e) => setPassword(e.target.value)}
-            value={password}
+            defaultValue={password}
             name='password'
             validationRules={{ required: true }}
             validationRefs={{ register, errors }}
@@ -100,7 +101,7 @@ const register = () => {
         <div className='md:flex md:items-center text-center block mx-auto w-full'>
           <div className='md:w-1/3 md:px-0 px-3'>
             <button
-              className=' w-full mx-auto shadow bg-orange-500 hover:bg-orange-600 focus:outline-none text-white font-bold py-2 px-4 rounded'
+              className='w-full mx-auto shadow bg-orange-500 hover:bg-orange-600 focus:outline-none text-white font-bold py-2 px-4 rounded'
               type='submit'
             >
               Send
