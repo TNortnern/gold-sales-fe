@@ -1,4 +1,23 @@
-const Input = ({ widthClasses, label, placeholder, onChange, type, value }) => {
+const Input = ({
+  widthClasses,
+  label,
+  placeholder,
+  onChange,
+  type,
+  value,
+  name,
+  validationRules,
+  validationRefs,
+}) => {
+  const { register, errors } = validationRefs; // initialise the hook
+
+  //   <input
+  //   className='px-6 py-2 border border-red-800'
+  //   type='text'
+  //   name='test'
+  //   ref={register({ required: true, maxLength: 20 })}
+  // />
+  // {errors.test && <span>This field is required</span>}
   const resolveWidthClasses = widthClasses || 'w-full';
   return (
     <div class={`${resolveWidthClasses} px-3`}>
@@ -15,7 +34,10 @@ const Input = ({ widthClasses, label, placeholder, onChange, type, value }) => {
         onChange={onChange}
         placeholder={placeholder}
         value={value}
+        name={name}
+        ref={register(validationRules)}
       />
+      {errors[name] && <span>This field is required</span>}
     </div>
   );
 };
