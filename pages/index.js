@@ -17,11 +17,11 @@ const index = () => {
         setToggleMobileNav={setToggleMobileNav}
       />
       {/* <!-- hero --> */}
-      <div class='hero bg-gray-100 py-16'>
+      <div className='hero bg-gray-100 py-16'>
         {/* <!-- container --> */}
-        <div class='container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto'>
+        <div className='container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto'>
           {/* <!-- hero wrapper --> */}
-          <div class='hero-wrapper grid grid-cols-1 md:grid-cols-12 gap-8 items-center'>
+          <div className='hero-wrapper grid grid-cols-1 md:grid-cols-12 gap-8 items-center'>
             <HeroText />
 
             <HeroImage />
