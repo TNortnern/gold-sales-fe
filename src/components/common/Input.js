@@ -1,4 +1,4 @@
-const Input = ({ widthClasses, label, placeholder, onChange, type }) => {
+const Input = ({ widthClasses, label, placeholder, onChange, type, value }) => {
   const resolveWidthClasses = widthClasses || 'w-full';
   return (
     <div class={`${resolveWidthClasses} px-3`}>
@@ -14,6 +14,7 @@ const Input = ({ widthClasses, label, placeholder, onChange, type }) => {
         type={type || 'text'}
         onChange={onChange}
         placeholder={placeholder}
+        value={value}
       />
     </div>
   );

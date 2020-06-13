@@ -35,7 +35,7 @@ const register = () => {
           <Input
             placeholder='Email'
             label='Email'
-            onChange={(e) => setLastName(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className=' md:-mx-3 mb-6'>
@@ -43,7 +43,8 @@ const register = () => {
             type='password'
             placeholder='Password'
             label='Password'
-            onChange={(e) => setLastName(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
+            value={lastName}
           />
         </div>
         <div className='md:flex md:items-center text-center block mx-auto w-full'>
