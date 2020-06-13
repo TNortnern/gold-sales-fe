@@ -19,6 +19,10 @@ const Input = ({
   // />
   // {errors.test && <span>This field is required</span>}
   const resolveWidthClasses = widthClasses || 'w-full';
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
     <div class={`${resolveWidthClasses} px-3`}>
       <label

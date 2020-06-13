@@ -16,8 +16,6 @@ const register = () => {
   };
   return (
     <div className='flex justify-center items-center w-full h-screen'>
-      {firstName.error}
-
       <form className='w-full max-w-lg' onSubmit={handleSubmit(onSubmit)}>
         <div className='flex flex-wrap md:-mx-3 mb-6'>
           {/* <div className='w-full md:w-1/2 px-3 mb-6 md:mb-0'>
@@ -42,8 +40,8 @@ const register = () => {
             widthClasses='w-full md:w-1/2'
             placeholder='First Name'
             label='First Name'
-            onChange={(e) => changeValue(e)}
-            value={firstName.text}
+            onChange={(e) => setFirstName(e.target.value)}
+            value={firstName}
             name='firstName'
             validationRules={{ required: true }}
             validationRefs={{ register, errors }}
@@ -93,7 +91,7 @@ const register = () => {
             placeholder='Password'
             label='Password'
             onChange={(e) => setPassword(e.target.value)}
-            value={lastName}
+            value={password}
             name='password'
             validationRules={{ required: true }}
             validationRefs={{ register, errors }}
